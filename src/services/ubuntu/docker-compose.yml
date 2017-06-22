@@ -1,0 +1,4 @@
+test:
+  image: ubuntu
+  command: bash
+  tty: true

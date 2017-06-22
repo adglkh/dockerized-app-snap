@@ -1,0 +1,13 @@
+#!/bin/sh
+export DOCKER_ENV="$SNAP/docker-env"
+export PATH="$DOCKER_ENV/usr/sbin:$DOCKER_ENV/usr/bin:$DOCKER_ENV/sbin:$DOCKER_ENV/bin:$PATH"
+export LD_LIBRARY_PATH="$DOCKER_ENV/lib:$DOCKER_ENV/usr/lib:$DOCKER_ENV/lib/x86_64-linux-gnu:$DOCKER_ENV/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH"
+export PYTHONPATH="$DOCKER_ENV/lib/python2.7/site-packages"
+
+if [ "$1" = 'docker-compose' ]; then
+    cmd="$1"
+    shift
+    set -- python2 "$(which "$cmd")" "$@"
+fi
+
+exec "$@"
