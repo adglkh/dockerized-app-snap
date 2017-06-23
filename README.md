@@ -1,15 +1,24 @@
 # Dockerized app snap
 
-A dockerized app snap that demonstrates  how to launch services by utilizing docker or docker compose command shared by docker snap.
+A dockerized app snap that demonstrates how to launch services by utilizing docker or docker compose command shared by docker snap. This is a proof of concept snap where I show snaps as a delivery mechanism for dockerized applications.
+It's still under development and is subject to change.
 
 ## Snap
 
 If you would like to build dockerized app snap, please make sure
-you have snapd(> 2.21) and snapcraft(2.26) packages installed firstly.
+you have snapd(> 2.25) and snapcraft(2.26) packages installed firstly.
 
 ```
 sudo apt-get install snapd snapcraft
 sudo snap install core
+```
+
+If you play around it on Ubuntu Core, you might as well refresh both core(> 1804) and pc-kernel(>67) snap to very latest version.
+Otherwise you may encounter [problems](https://forum.snapcraft.io/t/tmux-screen-on-ubuntu-core/499/15) when launching dockerized services.
+
+```
+sudo snap refresh core --candidate
+sudo snap refresh pc-kernel --edge
 ```
 
 Then you need to 
