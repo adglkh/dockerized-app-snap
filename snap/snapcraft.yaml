@@ -34,5 +34,7 @@ parts:
   environment:
     plugin: dump
     source: src/
+    install: |
+        mkdir $SNAPCRAFT_PART_INSTALL/docker-env
     organize:
       'docker-wrapper' : bin/
